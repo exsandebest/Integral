@@ -6,17 +6,14 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    w.resize(800,800);
+    MainWindow windowMain;
+    windowMain.show();
 
-    legend win2;
-    win2.show();
+    legend windowLegend;
+    windowLegend.show();
 
-    AnsWindow win;
-    win.show();
-
-
+    AnsWindow windowAns;
+    windowAns.show();
 
     return a.exec();
 }

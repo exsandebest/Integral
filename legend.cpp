@@ -6,6 +6,7 @@ legend::legend(QWidget *parent) :
     ui(new Ui::legend)
 {
     ui->setupUi(this);
+    this->setFixedSize(400, 100);
 }
 
 legend::~legend()

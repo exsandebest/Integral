@@ -14,12 +14,9 @@ class AnsWindow : public QWidget
 public:
     explicit AnsWindow(QWidget *parent = nullptr);
     ~AnsWindow();
-    /*double f1(double x);
-    double f2(double x);
-    double f3(double x);*/
-    double integral_simpson(double (*f)(double, int), double a, double b);
-    double integral_monte(double (*f)(double, int), double a, double b);
-    double integral_monte_2(double (*f)(double, int), double a, double b, double miny, double maxy);
+    double integral_simpson(double (*)(double, int), double, double);
+    double integral_monte(double (*)(double, int), double, double, double, double);
+
 private:
     Ui::AnsWindow *ui;
 };

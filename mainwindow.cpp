@@ -1,21 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtGui>
-#include <QLabel>
 #include <QPainter>
 #include "answindow.h"
+#include <qmath.h>
 
-int GFullSize = 800;
-int GSize = GFullSize/2;
-int block = GSize/10;
-
-
+const int GFullSize = 800;
+const int GSize = GFullSize/2;
+const int block = GSize/10;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 800);
 }
 
 MainWindow::~MainWindow()
@@ -24,7 +22,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::paintEvent(QPaintEvent *event){
-
     QPainter painter(this);
     painter.setPen(QPen(Qt::white,1,Qt::SolidLine, Qt::FlatCap));
     painter.translate(GSize, GSize);
@@ -43,7 +40,7 @@ void MainWindow::paintEvent(QPaintEvent *event){
     for (int i = -GSize; i<=GSize; ++i){
         painter.drawPoint(0,i);
     }
-        painter.setPen(QPen(Qt::red,3,Qt::SolidLine, Qt::FlatCap));
+    painter.setPen(QPen(Qt::red,3,Qt::SolidLine, Qt::FlatCap));
     for (int x = -GSize; x <=GSize; ++x){
         for (int y = -GSize; y <=GSize; ++y){
             if ((abs(-3*y -2*x-2*block)<3)){
@@ -60,7 +57,6 @@ void MainWindow::paintEvent(QPaintEvent *event){
         }
     }
 
-
     painter.setPen(QPen(Qt::blue,3,Qt::SolidLine, Qt::FlatCap));
 
     for (int x = -GSize; x<=GSize; ++x){
@@ -70,8 +66,4 @@ void MainWindow::paintEvent(QPaintEvent *event){
             }
         }
     }
-
-
-
-
 }
